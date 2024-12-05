@@ -1,267 +1,74 @@
-# <p align="center">Symfony_Crowdin - Translate website </p>
+# <p align="center">Java_Calculate - Simple Calculator Application</p>
 
 ## Context
-This is my POC for my informatics degree students at ETNA. I have 2 weeks to learn symfony 7. I use simple practices for show good methodoly. I don't have many time for realized this so I miss admin role and I don't have factory my code and so much logic on controller. If I have several days, I update UI UX pages and add more logic and smtp server to reset password and contact for exemple.
+This is a simple Java project designed to introduce students to Java programming and basic syntax. The primary goal is to help learners get comfortable with Java 11 and the Eclipse IDE. The project emphasizes simple practices and clear coding standards to build a basic command-line calculator.
 
-I made an introductory PPT on SYMFONY 7 on my github. After that, all bachelor students take an exam with me. They will have to complete the CROWDIN project.
+This project has been kept deliberately straightforward, focusing on user interaction and essential Java constructs such as loops, conditionals, methods, and exception handling. The application handles basic arithmetic operations.
 
-## Subject
-Crowdin is a community platform that connects translators (people who speak several languages) with people who need to have their project translated into a language they do not master.
+## 📖 Subject
+The calculator allows users to perform the following operations:
 
-The goal is for the person wishing to translate their project to post all the sentences or words on the platform, and for independent translators to come and translate the project independently.
+    Multiplication (*)
+    Division (/)
+    Addition (+)
 
-The site is divided into 3 main sections:
+The application workflow includes:
 
-- My account
-- Projects
-- Translator
+    Prompting the user to enter their username.
+    Accepting two numbers for the calculation.
+    Choosing an operation symbol (*, /, +).
+    Returning the calculated result.
 
-You must use :
-- Doctrine (ORM)
-- Voters & acces controll 
-- Form
-- Not a lot business logic in the controller
-## Screens
+Key Focus Areas:
 
-![Cover](https://github.com/Haroun-Azoulay/symfony_crowdin/blob/main/img/inscription.png)
-![Cover](https://github.com/Haroun-Azoulay/symfony_crowdin/blob/main/img/home-page.png)
-![Cover](https://github.com/Haroun-Azoulay/symfony_crowdin/blob/main/img/profil.png)
-![Cover](https://github.com/Haroun-Azoulay/symfony_crowdin/blob/main/img/all-projects.png)
-![Cover](https://github.com/Haroun-Azoulay/symfony_crowdin/blob/main/img/project.png)
-![Cover](https://github.com/Haroun-Azoulay/symfony_crowdin/blob/main/img/translations.png)
-        
+    Input validation
+    Exception handling (e.g., division by zero)
+    Method usage for modularity
+    User-friendly interaction
+
+## 📸 Screens
+The project is a command-line application, so screenshots are not applicable. Example outputs are provided below:
+
+Example Output:
+
+```
+Java Calculate
+Enter your username:
+> JohnDoe
+Welcome JohnDoe!
+Can you enter first number: 
+> 10
+Can you enter second number: 
+> 2
+Enter symbol to multiply (*) or divide (/) or addition (+):
+> *
+The result is: 20
+```
+
 ## 🛠️ Tech Stack
-- [Symfony](https://symfony.com/doc/7.0/index.html)
+- JAVA 11
+- Eclipse IDE
+- Docker
+
 
 ## 🧐 Features    
-- PHP 8.3.10
-- SYMFONY 7.1.3
+Basic Arithmetic Operations:
+- Multiplication
+- Division (with division by zero handling)
+- Addition
+
+Interactive CLI-based user interface
+
+Modular code with reusable methods
+
+Input validation for symbols and numerical input
 
 ## 🛠️ Install Dependencies    
 
-1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/) (v2.10+)
-2. Run `docker compose build --no-cache` to build fresh images
-3. Run `docker compose up --pull always -d --wait` to set up and start a fresh Symfony project
-4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
-5. Run `docker compose down --remove-orphans` to stop the Docker containers.
-  
+1. If not already done, [install Docker](https://docs.docker.com/engine/install/ubuntu/)
+2. Run `docker build -t my_image:tag .` to build fresh images
+3. Run `docker run -ti my_image:tag` to run container
 
-  ## Database
-      
-| user| projects|sources|translations|profil
-| -------|-----------|------------|-----------------|--------|
-| id | id| id    |id|id|id
-| email    | name    | content    |language|description|
-| roles    | start_language| key    |source_id|user_id
-|password|target_languages|projects_id|translated_content|languages
-pseudo|user_id|create_date|create_date|skills
-|create_date|update_date|update_date|update_date|
-|update_date||
-
-
-## ➤ Routes References
-
-###  Main Homepage
-```http
-GET /
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `None`
-
-###  User
-
-###  Inscription
-```http
-POST /inscription
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `None`
-
-###  Connection
-```http
-POST /connection
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `None`
-
-###  Disconnection
-```http
-POST /disconnection
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `None`
-
-
-###  Profil
-
-### View profil
-```http
-GET /profile
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `None` 
-
-### Create Profile
-```http
-POST /profile/create
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `None` 
-
-### Show Profile by ID
-```http
-GET /profile/{id}
-
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id` | `string` | **Required**. The ID of the profile. |
-
-### Update Profile by ID
-```http
-POST /profile/update/{id}
-```
-
-###  Projects
-
-
-### View Projects
-```http
-GET /projects
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `None` 
-
-### Create Project
-```http
-POST /projects/create
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `None` 
-
-### Update Project by ID
-```http
-POST /projects/update/{id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id` | `string` | **Required**. The ID of the project to update. |
-
-### Show Project by ID
-```http
-GET /projects/create
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id` | `string` | **Required**. The ID of the project. |
-
-### Delete Project by ID
-```http
-POST /projects/update/{id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id` | `string` | **Required**. The ID of the project to delete. |
-
-
-###  Sources
-
-
-### Show Sources
-```http
-GET /sources
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `None` 
-
-### GET /sources
-```http
-POST /sources/create/{id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id` | `string` | **Required**. The ID of the project. |
-
-### Update Sources by ID
-```http
-POST /sources/update/{id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id` | `string` | **Required**. The ID of the source. |
-
-### Show Source by ID
-```http
-GET /sources/{id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id` | `string` | **Required**. The ID of the source. |
-
-### Delete Source by ID
-```http
-POST /sources/delete/{id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id` | `string` | **Required**. The ID of the source. |
-
-
-###  Translations
-
-
-### Update Translation by ID
-```http
-POST /translations/update/{id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id` | `string` | **Required**. The ID of the translations. |
-
-
-### Delete Translation by ID
-```http
-POST /translations/delete/{id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id` | `string` | **Required**. The ID of the translations. |
-
-
-        
-## 🙇 Acknowledgements      
-- A [Docker](https://www.docker.com/) - based installer and runtime for the [Symfony](https://symfony.com) web framework,  Thanks a lot for your work !
-- A [Etna](https://etna.io/) - thanks also for being a teacher on the php bachelor module.
-
-        
         
 ## ❤️ Support  
 A simple star to this project repo is enough to keep me motivated on this project for days. If you find your self very much excited with this project let me know with a tweet.
